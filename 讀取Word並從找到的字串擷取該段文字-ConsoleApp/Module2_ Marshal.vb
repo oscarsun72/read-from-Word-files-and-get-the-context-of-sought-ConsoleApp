@@ -3,7 +3,7 @@ Imports wd = Microsoft.Office.Interop.Word '引用別名（Alias） https://soci
 Imports System.Runtime.InteropServices
 
 Module Module2_Marshal
-    Sub Main()
+    Sub Main_Marshal()
         Dim fName = CurDir() & "\心經.docx"
         Dim findTxt = "色即是空"
         Dim f As New Form 'https://social.msdn.microsoft.com/Forums/windowsdesktop/zh-TW/46d73fc9-4603-43ae-acf8-03873f17dfeb/msgbox-topmost?forum=232
