@@ -4,8 +4,8 @@ Imports System.Runtime.InteropServices
 
 Module Module2_Marshal
     Sub Main_Marshal()
-        Dim fName = CurDir() & "\心經.docx"
-        Dim findTxt = "色即是空"
+        Dim fName = CurDir() & "\碩士論文_顧炎武經世思想研究_孫守真的碩士論文.doc" '"\心經.docx"
+        Dim findTxt = "另註明特殊關係如" '"色即是空"
         Dim f As New Form 'https://social.msdn.microsoft.com/Forums/windowsdesktop/zh-TW/46d73fc9-4603-43ae-acf8-03873f17dfeb/msgbox-topmost?forum=232
         f.TopMost = True '訊息方塊最上層顯示
         If Dir(fName) = "" Then
@@ -41,7 +41,7 @@ Module Module2_Marshal
             'WriteLine和Write不同在於WriteLine會將插入點置於印出來的文字的下一行，就不會與Ctrl+F5執行後產生的提示文字重疊
             Console.ReadLine() '在Console按下Enter鍵即可離開
         End If
-        doc.ActiveWindow.Visible = True
+        'doc.ActiveWindow.Visible = True
         'doc.Close(wd.WdSaveOptions.wdDoNotSaveChanges) '如果要關掉文件，再執行此行
         '如果有用到Dim app As New wd.Application 這行，就最好執行此行:
         obj.Quit(wd.WdSaveOptions.wdDoNotSaveChanges)
