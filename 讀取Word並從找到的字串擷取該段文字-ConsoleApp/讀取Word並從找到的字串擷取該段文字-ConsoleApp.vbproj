@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D2284D8B-635F-4E72-AA21-4C8D37B46BDB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>讀取Word並從找到的字串擷取該段文字_ConsoleApp.Module1</StartupObject>
+    <StartupObject>讀取Word並從找到的字串擷取該段文字_ConsoleApp.Module2_Marshal</StartupObject>
     <RootNamespace>讀取Word並從找到的字串擷取該段文字_ConsoleApp</RootNamespace>
     <AssemblyName>讀取Word並從找到的字串擷取該段文字-ConsoleApp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -70,6 +70,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Module2_ Marshal.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
