@@ -18,22 +18,7 @@ Module Module2_Marshal
             'MsgBox("沒有尋找字串，請重新指定！",Buttons:=MsgBoxStyle.Critical + MsgBoxStyle.ApplicationModal)
             Exit Sub
         End If
-        Dim obj As [Object] = Nothing 'https://docs.microsoft.com/zh-tw/dotnet/api/system.runtime.interopservices.marshal.getactiveobject?view=netframework-4.8
-        Try
-            obj = Marshal.GetActiveObject("Word.Application")
-        Catch e As Exception
-        End Try
-        If obj Is Nothing Then
-            Dim app As New wd.Application '只是把app改成obj而已，似乎多此一舉，然若能在出錯的版本上執行，也算權解了
-            obj = Marshal.GetActiveObject("Word.Application")
-        End If
-        Dim docs As wd.Documents = obj.Documents
-        'Use the Documents property to return the Documents collection.
-        'And use the return Documents collection to initialize the docs Documents
-        'https://docs.microsoft.com/zh-tw/dotnet/api/microsoft.office.interop.word.documents.add?view=word-pia#Microsoft_Office_Interop_Word_Documents_Add_System_Object__System_Object__System_Object__System_Object__
-        Dim doc As wd.Document = docs.Open(fName)
-        'ojc.Visible = True '是怕開啟檔案時會有對話方塊，如果當機，才能手動關閉Word app
-        'app.WindowState = wd.WdWindowState.wdWindowStateMinimize
+        Dim doc As wd.Document = GetObject(fName)
         Dim foundRng As wd.Range = doc.Range()
         If foundRng.Find().Execute(findTxt) Then '如果有找到的話
             foundRng.Select()
@@ -44,7 +29,7 @@ Module Module2_Marshal
         'doc.ActiveWindow.Visible = True
         'doc.Close(wd.WdSaveOptions.wdDoNotSaveChanges) '如果要關掉文件，再執行此行
         '如果有用到Dim app As New wd.Application 這行，就最好執行此行:
-        obj.Quit(wd.WdSaveOptions.wdDoNotSaveChanges)
-        doc = Nothing : docs = Nothing : obj = Nothing
+        doc.Application.Quit(wd.WdSaveOptions.wdDoNotSaveChanges)
+        doc = Nothing
     End Sub
 End Module
