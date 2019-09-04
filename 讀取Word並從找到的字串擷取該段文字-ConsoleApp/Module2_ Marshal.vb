@@ -4,8 +4,8 @@ Imports System.Runtime.InteropServices
 
 Module Module2_Marshal
     Sub Main_Marshal()
-        Dim fName = CurDir() & "\碩士論文_顧炎武經世思想研究_孫守真的碩士論文.doc" '"\心經.docx"
-        Dim findTxt = "另註明特殊關係如"
+        Dim fName = CurDir() & "\翁方綱及其文獻學研究_print.doc" '"\心經.docx"
+        Dim findTxt = "我愛，與我母。"
         Dim f As New Form 'https://social.msdn.microsoft.com/Forums/windowsdesktop/zh-TW/46d73fc9-4603-43ae-acf8-03873f17dfeb/msgbox-topmost?forum=232
         f.TopMost = True '訊息方塊最上層顯示
         If Dir(fName) = "" Then
