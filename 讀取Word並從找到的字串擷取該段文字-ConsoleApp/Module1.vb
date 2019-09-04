@@ -5,7 +5,7 @@ Module Module1
     Sub Main()
         Dim fName = CurDir() & "\心經.docx"
         Dim findTxt = "色即是空"
-        Dim f As New Form
+        Dim f As New Form 'https://social.msdn.microsoft.com/Forums/windowsdesktop/zh-TW/46d73fc9-4603-43ae-acf8-03873f17dfeb/msgbox-topmost?forum=232
         f.TopMost = True '訊息方塊最上層顯示
         If Dir(fName) = "" Then
             MessageBox.Show(f, "沒有此檔案，請檢查路徑、檔名是否正確！") '訊息方塊最上層顯示,下式不行：
