@@ -34,14 +34,24 @@ Module Module2_Marshal
         Dim doc As wd.Document = docs.Open(fName)
         'ojc.Visible = True '是怕開啟檔案時會有對話方塊，如果當機，才能手動關閉Word app
         'app.WindowState = wd.WdWindowState.wdWindowStateMinimize
-        Dim foundRng As wd.Range = doc.Range()
-        If foundRng.Find().Execute(findTxt) Then '如果有找到的話
-            foundRng.Select()
-            Console.WriteLine(doc.ActiveWindow.Selection.Paragraphs(1).Range.Text)
-            'WriteLine和Write不同在於WriteLine會將插入點置於印出來的文字的下一行，就不會與Ctrl+F5執行後產生的提示文字重疊
-            Console.ReadLine() '在Console按下Enter鍵即可離開
-        End If
-        doc.ActiveWindow.Visible = True
+        'Dim foundRng As wd.Range = doc.Range()
+        'Dim sel As wd.Selection = doc.ActiveWindow.Selection
+        Dim p As wd.Paragraph
+        For Each p In doc.Paragraphs
+            If InStr(p.Range.Text, findTxt) > 0 Then '如果有找到的話
+                Console.WriteLine(p.Range.Text)
+                Exit For
+            End If
+        Next
+        'If sel.Find().Execute(findTxt) = True Then '如果有找到的話
+        'If foundRng.Find().Execute(findTxt) = True Then '如果有找到的話
+        'foundRng.Select()
+        'Console.WriteLine(doc.ActiveWindow.Selection.Paragraphs(1).Range.Text)
+        'Console.WriteLine(sel.Paragraphs(1).Range.Text)
+        'WriteLine和Write不同在於WriteLine會將插入點置於印出來的文字的下一行，就不會與Ctrl+F5執行後產生的提示文字重疊
+        Console.ReadLine() '在Console按下Enter鍵即可離開
+        'End If
+        'doc.ActiveWindow.Visible = True
         'doc.Close(wd.WdSaveOptions.wdDoNotSaveChanges) '如果要關掉文件，再執行此行
         '如果有用到Dim app As New wd.Application 這行，就最好執行此行:
         obj.Quit(wd.WdSaveOptions.wdDoNotSaveChanges)
