@@ -26,7 +26,7 @@ Module Module2
         Dim startPst As Long = InStr(docContent, findTxt)
         If startPst > 0 Then
             Dim thisparaEnd As Long = InStr(startPst, docContent, Chr(13))
-            Dim thisparaStart As Long = InStrRev(docContent, Chr(13), startPst)
+            Dim thisparaStart As Long = InStrRev(docContent, Chr(13), startPst) + 1
             If thisparaStart = 0 Then thisparaStart = 1 '如果是第一段文件
             Dim findTxtPara As String = Mid(docContent, thisparaStart, thisparaEnd - thisparaStart + 1)
             '以chr(13)段落標記來找前後分段處
