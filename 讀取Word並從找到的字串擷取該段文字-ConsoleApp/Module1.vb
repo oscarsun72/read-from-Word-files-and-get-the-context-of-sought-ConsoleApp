@@ -3,7 +3,7 @@ Imports wd = Microsoft.Office.Interop.Word '引用別名（Alias） https://soci
 
 Module Module1
     Sub Main()
-        Main_Marshal()
+        Main_Module2()
     End Sub
     Sub Main_original()
         Dim fName = CurDir() & "\心經.docx"
