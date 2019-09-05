@@ -2,10 +2,10 @@
 Imports wd = Microsoft.Office.Interop.Word '引用別名（Alias） https://social.technet.microsoft.com/wiki/contents/articles/32449.namespace-aliases-in-visual-basic-net-howto.aspx
 Imports System.Runtime.InteropServices
 
-Module Module2_Marshal
+Module Module2
     Sub Main_Marshal()
-        Dim fName = CurDir() & "\翁方綱及其文獻學研究_print.doc" '"\心經.docx"
-        Dim findTxt = "我愛，與我母。"
+        Dim fName = CurDir() & "\心經.docx" '"\翁方綱及其文獻學研究_print.doc"
+        Dim findTxt = "色即是空" '"我愛，與我母。"
         Dim f As New Form 'https://social.msdn.microsoft.com/Forums/windowsdesktop/zh-TW/46d73fc9-4603-43ae-acf8-03873f17dfeb/msgbox-topmost?forum=232
         f.TopMost = True '訊息方塊最上層顯示
         If Dir(fName) = "" Then
